@@ -1,0 +1,11 @@
+{
+  "name": "Hermes SnD Secure Portal",
+  "short_name": "Hermes SnD",
+  "description": "Secure launcher for the AI_PROJECT_117 Google Apps Script trading dashboard.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#06100e",
+  "theme_color": "#07100f",
+  "icons": [{"src":"assets/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07100f">
+  <meta name="description" content="Hermes SnD XAUUSD — Premium secure portal for the AI_PROJECT_117 Google Apps Script trading dashboard.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Hermes SnD · Secure Trading Portal</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-loading">
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="top-progress" id="topProgress" aria-hidden="true"></div>
+
+  <div class="boot-screen" id="bootScreen" role="status" aria-live="polite">
+    <div class="boot-orbit" aria-hidden="true"><span></span></div>
+    <p>กำลังตรวจสอบ Secure Portal</p>
+    <small id="bootMessage">กำลังเตรียมการเชื่อมต่อ…</small>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Hermes SnD home">
+      <span class="brand-mark">H</span>
+      <span><strong>Hermes SnD</strong><small>AI_PROJECT_117 · Secure Portal</small></span>
+    </a>
+    <div class="header-status" title="สถานะ Google Apps Script Web App">
+      <span class="status-dot checking" id="headerDot"></span>
+      <span id="headerStatus">กำลังตรวจสอบ</span>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> Supply &amp; Demand Intelligence</div>
+        <h1>Premium gateway<br><em>สำหรับการวิเคราะห์จริง</em></h1>
+        <p class="hero-lead">ประตูเข้าสู่ Hermes SnD XAUUSD ที่เชื่อมกับ Google Apps Script Web App โดยตรง ข้อมูลตลาด, AI Review และคำสั่ง Endpoint ยังคงทำงานในพื้นที่ที่ยืนยันตัวตนแล้วเท่านั้น</p>
+        <div class="hero-actions">
+          <a class="button primary" id="launchButton" href="#" target="_blank" rel="noopener noreferrer">
+            <span>เปิด Trading Dashboard</span><b aria-hidden="true">↗</b>
+          </a>
+          <button class="button secondary" id="checkButton" type="button"><span class="button-icon">⟳</span> ตรวจการเชื่อมต่อ</button>
+        </div>
+        <div class="trust-row" aria-label="Security highlights">
+          <span>✓ ไม่มี API Key บน GitHub</span><span>✓ Owner authentication</span><span>✓ Endpoint แยกจากหน้า Public</span>
+        </div>
+      </div>
+
+      <aside class="terminal-card" aria-label="System overview">
+        <div class="terminal-head"><div class="window-dots"><i></i><i></i><i></i></div><span>HERMES / LIVE GATEWAY</span><b>v1.8.1</b></div>
+        <div class="market-line"><div><small>INSTRUMENT</small><strong>XAUUSD</strong></div><div class="market-pulse"><span></span>SECURE ACCESS</div></div>
+        <div class="decision-preview">
+          <small>PENDING ORDER ENGINE</small>
+          <strong>BUY LIMIT <i>/</i> SELL LIMIT</strong>
+          <p>Entry ที่ Proximal · SL พ้น Distal · TP จาก Structural Zone</p>
+        </div>
+        <div class="system-grid">
+          <div><small>DATA</small><strong>FMP LIVE</strong></div><div><small>REVIEW</small><strong>AI + QC</strong></div><div><small>MODE</small><strong>OWNER ONLY</strong></div><div><small>BRIDGE</small><strong>MT5 ENDPOINT</strong></div>
+        </div>
+        <div class="terminal-foot"><span class="scan-line"></span><span id="terminalText">Initializing secure health check…</span></div>
+      </aside>
+    </section>
+
+    <section class="status-section shell" id="status">
+      <div class="section-title"><div><span class="eyebrow-label">LIVE CONNECTION</span><h2>สถานะระบบที่ตรวจสอบได้</h2></div><span class="last-check" id="lastChecked">ยังไม่ได้ตรวจสอบ</span></div>
+      <div class="status-grid">
+        <article class="status-card featured">
+          <div class="status-icon"><span class="status-dot checking" id="mainDot"></span></div>
+          <div><small>GOOGLE APPS SCRIPT</small><h3 id="mainStatus">กำลังตรวจสอบ Web App</h3><p id="statusDetail">กำลังเชื่อมต่อกับ Deployment URL แบบไม่ส่งข้อมูลส่วนตัว</p></div>
+          <span class="status-badge" id="statusBadge">CHECKING</span>
+        </article>
+        <article class="status-card"><div class="mini-icon">⌁</div><div><small>PUBLIC LAYER</small><h3>GitHub Pages</h3><p>Static portal ไม่มี Secret และไม่มีสิทธิ์สั่งเทรด</p></div></article>
+        <article class="status-card"><div class="mini-icon">⌾</div><div><small>PRIVATE LAYER</small><h3>Authenticated App</h3><p>ข้อมูลจริงและ Web Actions อยู่หลัง Google Login</p></div></article>
+      </div>
+    </section>
+
+    <section class="architecture shell">
+      <div class="section-title"><div><span class="eyebrow-label">SECURE ARCHITECTURE</span><h2>แยก Public และ Private อย่างชัดเจน</h2></div></div>
+      <div class="flow" role="list">
+        <article role="listitem"><span class="flow-number">01</span><div><h3>GitHub Portal</h3><p>แนะนำระบบ ตรวจ Availability และเปิด Dashboard เท่านั้น</p></div></article>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <article role="listitem"><span class="flow-number">02</span><div><h3>Google Authentication</h3><p>ตรวจเจ้าของ Spreadsheet หรือ Allowlist ก่อนรับคำสั่ง</p></div></article>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <article role="listitem"><span class="flow-number">03</span><div><h3>Hermes Pipeline</h3><p>FMP → SnD → AI Review → Final QC → Endpoint Policy</p></div></article>
+      </div>
+    </section>
+
+    <section class="method shell">
+      <div class="method-copy"><span class="eyebrow-label">FXTA METHODOLOGY</span><h2>กฎสำคัญถูกเก็บไว้<br>ในระบบวิเคราะห์หลัก</h2><p>หน้า GitHub ไม่จำลองผลเทรดและไม่สร้างสัญญาณปลอม ทุกการตัดสินใจมาจาก Apps Script Pipeline ที่เชื่อมข้อมูลจริงเท่านั้น</p></div>
+      <div class="method-grid">
+        <article><span>ENTRY</span><strong>Proximal</strong><p>Buy Limit ที่ Demand<br>Sell Limit ที่ Supply</p></article>
+        <article><span>STOP</span><strong>Distal + Buffer</strong><p>ใช้ ATR หรือ Spread × 2<br>ตามค่าที่ปลอดภัยกว่า</p></article>
+        <article><span>TARGET</span><strong>Structural TP</strong><p>โซนตรงข้ามที่ใกล้ที่สุด<br>ไม่สร้าง TP จาก RR ล้วน</p></article>
+        <article><span>RISK</span><strong>Fixed ≤ 2%</strong><p>RR ≥ 3 Best · ≥ 2 Good<br>สูงเกินไปต้อง Review</p></article>
+      </div>
+    </section>
+
+    <section class="cta shell">
+      <div><span class="eyebrow-label">READY WHEN YOU ARE</span><h2>เข้าสู่ระบบวิเคราะห์แบบเต็ม</h2><p>เปิด Dashboard ที่ Deploy แล้วในแท็บใหม่ พร้อม Loading, Popup และ Security Gateway</p></div>
+      <a class="button primary" id="bottomLaunch" href="#" target="_blank" rel="noopener noreferrer"><span>เปิด Hermes SnD</span><b aria-hidden="true">↗</b></a>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="brand compact"><span class="brand-mark">H</span><span><strong>Hermes SnD</strong><small>AI_PROJECT_117</small></span></div>
+    <p>Secure GitHub Pages Portal · Trading involves risk · Test in Demo before Real</p>
+    <div><a id="sourceLink" href="https://github.com/BassSG/AI_PROJECT_117" target="_blank" rel="noopener noreferrer">GitHub</a><button id="copyButton" type="button">คัดลอก Web App URL</button></div>
+  </footer>
+
+  <div class="launch-overlay" id="launchOverlay" role="status" aria-live="polite" aria-hidden="true"><div class="launch-box"><div class="boot-orbit small" aria-hidden="true"><span></span></div><strong>กำลังเปิด Secure Dashboard</strong><p>Google อาจขอให้ยืนยันบัญชีก่อนเข้าใช้งาน</p></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="offline-banner" id="offlineBanner">อุปกรณ์ออฟไลน์ — ปุ่ม Dashboard จะพร้อมเมื่ออินเทอร์เน็ตกลับมา</div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
