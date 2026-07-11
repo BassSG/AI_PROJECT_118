@@ -1,48 +1,40 @@
-# Hermes SnD XAUUSD — PWA Launcher
+# Hermes SnD XAUUSD — Embedded PWA
 
-<p align="center">
-  <img src="assets/hermes-snd-icon-512.png" width="180" alt="Hermes SnD Premium App Icon">
-</p>
+<p align="center"><img src="assets/hermes-snd-icon-512.png" width="180" alt="Hermes SnD Premium App Icon"></p>
 
-GitHub Pages ทำหน้าที่เป็น **PWA launcher / wrapper** สำหรับ Google Apps Script Web App เดิมโดยตรง ไม่ได้คัดลอกหรือสร้าง Dashboard ขึ้นใหม่
+GitHub Pages แสดง Google Apps Script Web App อยู่ภายในหน้า Application โดยตรงผ่าน iframe ที่ได้รับอนุญาตด้วย `HtmlService.XFrameOptionsMode.ALLOWALL`
 
 ## เปิดใช้งาน
 
-- App / GitHub Pages: https://basssg.github.io/AI_PROJECT_117/
-- Google Apps Script ต้นฉบับ: https://script.google.com/macros/s/AKfycbweCV370sfJFtoCOR6g19j3cizvUzKZt9JMAbMqVtk5qF0jeG68VDypo6N0FcBNRRi9Iw/exec
+- GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_117/
+- Google Apps Script deployment: https://script.google.com/macros/s/AKfycbzEkz5-qup_N6DAxzIjHmhmkrzsAYewbCyJZ2Jnh9_23ilxX_jYf7y0FM4oJqYPescLmw/exec
 
-`index.html` โหลด URL ของ Google Apps Script เข้าใน application frame โดยตรง ดังนั้นเมื่อ Deploy Apps Script รุ่นใหม่โดยใช้ deployment URL เดิม หน้า GitHub และแอปที่ติดตั้งไว้จะเปิดรุ่นใหม่โดยไม่ต้องคัดลอก source มายัง repository
+เมื่อ Deploy Google Apps Script รุ่นใหม่ด้วย deployment URL เดิม หน้า GitHub และ Application ที่ติดตั้งไว้จะโหลดรุ่นใหม่โดยอัตโนมัติ โดยไม่ต้องคัดลอก source หรือ Dashboard มายัง repository
 
 ## ติดตั้งเป็น Application
 
-### Android / Chrome / Edge Desktop
+- Android/Chrome/Edge Desktop: เปิด GitHub Pages แล้วเลือก **ติดตั้ง App** หรือ **Install app / Add to Home screen**
+- iPhone/iPad: เปิดด้วย Safari → Share → **Add to Home Screen**
 
-1. เปิด https://basssg.github.io/AI_PROJECT_117/
-2. กด **ติดตั้ง App** หรือเมนู **Install app / Add to Home screen**
-3. แอปจะใช้ไอคอน Hermes SnD Premium และเปิดแบบ standalone
+## ไฟล์สำคัญ
 
-### iPhone / iPad
+- `index.html` — PWA shell และ iframe ไปยัง Apps Script deployment
+- `manifest.webmanifest` — application metadata
+- `sw.js` — cache เฉพาะ GitHub shell และ assets ไม่ cache Apps Script
+- `assets/` — Premium SVG/PNG icons สำหรับมือถือและคอมพิวเตอร์
 
-1. เปิดลิงก์ด้วย Safari
-2. กด Share
-3. เลือก **Add to Home Screen**
+## เปลี่ยน Deployment URL
 
-## โครงสร้าง
-
-- `index.html` — premium PWA launcher และ iframe ไป Apps Script
-- `manifest.webmanifest` — ข้อมูลติดตั้งแอป
-- `sw.js` — cache เฉพาะ launcher และ assets; ไม่ cache/คัดลอก Apps Script
-- `assets/` — SVG และ PNG app icons
-- `.github/workflows/pages.yml` — GitHub Pages deployment
-
-## เปลี่ยน Apps Script URL
-
-หากสร้าง deployment ใหม่จน URL เปลี่ยน ให้แก้เพียงค่าต่อไปนี้ใน `index.html`:
+หากสร้าง Deployment ใหม่จน URL เปลี่ยน ให้แก้ค่าเดียวใน `index.html`:
 
 ```js
 const APP_URL='https://script.google.com/macros/s/.../exec';
 ```
 
-## หมายเหตุ
+Apps Script `doGet()` ต้องมี:
 
-บาง browser หรือ policy อาจไม่อนุญาตให้บริการภายนอกแสดงใน iframe หน้า launcher จึงมีปุ่ม **เปิดต้นฉบับ** เป็น fallback เพื่อเปิด Google Apps Script โดยตรงเสมอ
+```js
+.setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL)
+```
+
+สิทธิ์ผู้ใช้และคำสั่งสำคัญต้องตรวจฝั่ง Apps Script/server เสมอ เพราะ `ALLOWALL` อนุญาตให้เว็บไซต์ภายนอกฝัง Web App ได้
