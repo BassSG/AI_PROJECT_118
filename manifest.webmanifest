@@ -1,10 +1,10 @@
 {
-  "id": "/AI_PROJECT_117/",
+  "id": "/AI_PROJECT_118/",
   "name": "Hermes SnD XAUUSD",
   "short_name": "Hermes SnD",
   "description": "Premium launcher for the Hermes SnD XAUUSD Google Apps Script application",
-  "start_url": "/AI_PROJECT_117/",
-  "scope": "/AI_PROJECT_117/",
+  "start_url": "/AI_PROJECT_118/",
+  "scope": "/AI_PROJECT_118/",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#050b0a",
