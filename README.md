@@ -7,7 +7,7 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 ## เปิดใช้งาน
 
 - GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_117/
-- Google Apps Script deployment: https://script.google.com/macros/s/AKfycbzEkz5-qup_N6DAxzIjHmhmkrzsAYewbCyJZ2Jnh9_23ilxX_jYf7y0FM4oJqYPescLmw/exec
+- Google Apps Script deployment: https://script.google.com/macros/s/AKfycbweCV370sfJFtoCOR6g19j3cizvUzKZt9JMAbMqVtk5qF0jeG68VDypo6N0FcBNRRi9Iw/exec
 
 เมื่อ Deploy Google Apps Script รุ่นใหม่ด้วย deployment URL เดิม หน้า GitHub และ Application ที่ติดตั้งไว้จะโหลดรุ่นใหม่โดยอัตโนมัติ โดยไม่ต้องคัดลอก source หรือ Dashboard มายัง repository
 
