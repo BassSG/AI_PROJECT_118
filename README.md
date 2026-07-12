@@ -26,4 +26,4 @@ Serve the repository root with any static HTTP server. Opening `index.html` dire
 
 ## Configuration
 
-The public deployment URL and display metadata are stored in `config.js`. Never place secrets in this file or anywhere in this repository.
+The public deployment URL is declared as `APP_URL` in `config.js`. Never place secrets in this file or anywhere in this repository.
