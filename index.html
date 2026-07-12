@@ -28,13 +28,14 @@
   </main>
 </div>
 <script>
+  const APP_VERSION='1.8.2';
   const APP_URL='https://script.google.com/macros/s/AKfycbweCV370sfJFtoCOR6g19j3cizvUzKZt9JMAbMqVtk5qF0jeG68VDypo6N0FcBNRRi9Iw/exec';
   const frame=document.getElementById('appFrame');
   const loading=document.getElementById('loading');
   const errorBox=document.getElementById('errorBox');
   const statusText=document.getElementById('statusText');
   document.getElementById('sourceBtn').href=APP_URL;
-  function loadApp(force){loading.classList.remove('hide');errorBox.classList.remove('show');statusText.textContent='กำลังเชื่อมต่อ';frame.src=APP_URL+(force?'?refresh='+Date.now():'')}
+  function loadApp(force){loading.classList.remove('hide');errorBox.classList.remove('show');statusText.textContent='กำลังเชื่อมต่อ';const url=new URL(APP_URL);url.searchParams.set('v',APP_VERSION);if(force)url.searchParams.set('refresh',Date.now());frame.src=url.toString()}
   frame.addEventListener('load',()=>{setTimeout(()=>{loading.classList.add('hide');statusText.textContent='เชื่อมต่อแล้ว'},280)});
   document.getElementById('reloadBtn').onclick=()=>loadApp(true);
   setTimeout(()=>{if(!loading.classList.contains('hide'))errorBox.classList.add('show')},12000);
