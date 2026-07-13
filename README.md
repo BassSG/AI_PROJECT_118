@@ -9,7 +9,7 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_118/
 - Google Apps Script deployment: https://script.google.com/macros/s/AKfycbweCV370sfJFtoCOR6g19j3cizvUzKZt9JMAbMqVtk5qF0jeG68VDypo6N0FcBNRRi9Iw/exec
 
-รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.0 Balanced Auto / Apps Script deployment version 21**
+รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.1 Analysis Plan + Balanced Auto / Apps Script deployment version 23**
 
 - ใช้ `openai/gpt-5.6-luna-pro` เป็นค่าเริ่มต้น และเลือกต่อรอบได้ 3 โมเดล: Luna Pro, Terra Pro และ Sol Pro
 - Server ตรวจ Allowlist ทุกครั้ง จึงไม่รับชื่อโมเดลอื่นจากการแก้ค่าบน Browser
@@ -18,15 +18,18 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - กฎความปลอดภัยหลักยังอยู่ครบ: H4/H1 ต้องตรงทิศ, TP ต้องมีโครงสร้าง, ราคา/SL/TP ต้องถูกด้าน, โซน `USED_UP` และ Retest เกิน 1 ครั้งยังถูกบล็อก
 
 - หน้าเว็บแสดงทุกเหตุการณ์ของ Full Pipeline ทั้ง `PASS`, `FAIL`, `STOP`, `BYPASS` และเหตุผล
-- ผล `NO_TRADE` แสดงรายละเอียดครบ แต่ไม่ส่ง `PLACE_PENDING`
+- เมื่อสร้าง Candidate ได้ ระบบจะแสดง Best Analysis Plan พร้อม `BUY_LIMIT`/`SELL_LIMIT`, Entry, SL, TP และ RR แม้ผลสุดท้ายเป็น `NO_TRADE`
+- แผนที่ไม่ผ่าน Execution Gate จะติดป้าย `REFERENCE_ONLY` และ `NOT_SENT` ชัดเจน โดยไม่ส่ง `PLACE_PENDING`
+- OpenRouter ถูกเรียกเพื่อ Review เมื่อมี Candidate อย่างน้อยหนึ่งแผน แม้แผนนั้นยังไม่ผ่าน Auto Gate เพื่อให้เห็นคำอธิบายและ Token/Cost จริง
+- ถ้าไม่มี Candidate ที่สร้าง Entry/SL/TP ได้ ระบบจะไม่เรียก AI, แสดง `NOT_CALLED_NO_CANDIDATE` และค่า AI เป็นศูนย์
 - ส่ง Order Webhook เฉพาะแผนที่ผ่านทุก Gate และแสดงสถานะ `SENT_ACCEPTED`, `SENT_REJECTED` หรือ `NOT_SENT`
 - การวิเคราะห์จากหน้าเว็บใช้ผู้ส่ง `EBassWave`; การรันจาก GAS ใช้ผู้ส่ง `1-more`
 - Endpoint URL และ Query Token ถูกจัดการใน `Code.gs` โดยตรง ไม่อ่าน `ENDPOINT_URL` หรือ `ENDPOINT_SECRET` จาก Script Properties
 - Endpoint Queue ตอบกลับด้วย `stored_event_id` และระบบบันทึกสถานะเป็น `QUEUED`; หาก Endpoint/Auth ไม่พร้อมจะถอยเป็น Analysis-only อย่างปลอดภัย
 - หน้า Dashboard แสดง Endpoint URL, Query-token Auth, Emergency Stop และ Weekend policy แยกกันชัดเจน
-- ป๊อปอัปผลลัพธ์สรุปเหตุผล แผนที่ตรวจ และสถานะ Webhook เป็นภาษาอ่านง่าย โดยพับ Pipeline ทุกขั้นและข้อมูลอ้างอิงไว้ให้เปิดดูเมื่อจำเป็น
+- ป๊อปอัปผลลัพธ์แยก Best Analysis Plan, สถานะแผน, AI Review/Cost และ Webhook เป็นช่องอ่านง่าย โดยพับ Pipeline ทุกขั้นและข้อมูลอ้างอิงไว้ให้เปิดดูเมื่อจำเป็น
 - ป๊อปอัปบนมือถือเลื่อนเนื้อหาได้ พร้อมปุ่มปิดด้านบน, “รับทราบ” และ “ดูผลล่าสุด” ที่กดได้เสมอ
-- AI Diagnostic จะไม่ถูกเรียกซ้ำเพื่อคิดค่าใช้จ่ายเมื่อรอบหยุดด้วย `CONFIG_INVALID`
+- ระบบไม่เรียก AI Diagnostic แฝงเมื่อ Pipeline ไม่มี Candidate; การทดสอบ AI จะเกิดเฉพาะเมื่อผู้ใช้กดคำสั่ง “ทดสอบ AI” โดยตรง
 - ค่าใช้จ่าย AI คำนวณตามโมเดลที่เลือกจริงในแต่ละรอบ และผลสรุปแสดงโมเดลที่ใช้เพื่อ Audit ย้อนหลัง
 
 เมื่อ Deploy Google Apps Script รุ่นใหม่ด้วย deployment URL เดิม หน้า GitHub และ Application ที่ติดตั้งไว้จะโหลดรุ่นใหม่โดยอัตโนมัติ โดยไม่ต้องคัดลอก source หรือ Dashboard มายัง repository
