@@ -9,7 +9,7 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_118/
 - Google Apps Script deployment: https://script.google.com/macros/s/AKfycbweCV370sfJFtoCOR6g19j3cizvUzKZt9JMAbMqVtk5qF0jeG68VDypo6N0FcBNRRi9Iw/exec
 
-รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.8.8 / Apps Script deployment version 18**
+รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.8.9 / Apps Script deployment version 19**
 
 - หน้าเว็บแสดงทุกเหตุการณ์ของ Full Pipeline ทั้ง `PASS`, `FAIL`, `STOP`, `BYPASS` และเหตุผล
 - ผล `NO_TRADE` แสดงรายละเอียดครบ แต่ไม่ส่ง `PLACE_PENDING`
@@ -18,7 +18,8 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - Endpoint URL และ Query Token ถูกจัดการใน `Code.gs` โดยตรง ไม่อ่าน `ENDPOINT_URL` หรือ `ENDPOINT_SECRET` จาก Script Properties
 - Endpoint Queue ตอบกลับด้วย `stored_event_id` และระบบบันทึกสถานะเป็น `QUEUED`; หาก Endpoint/Auth ไม่พร้อมจะถอยเป็น Analysis-only อย่างปลอดภัย
 - หน้า Dashboard แสดง Endpoint URL, Query-token Auth, Emergency Stop และ Weekend policy แยกกันชัดเจน
-- ป๊อปอัปผลลัพธ์บนมือถือเลื่อนเนื้อหาได้ พร้อมปุ่มปิดด้านบน, “รับทราบ” และ “ดูผลล่าสุด” ที่กดได้เสมอ
+- ป๊อปอัปผลลัพธ์สรุปเหตุผล แผนที่ตรวจ และสถานะ Webhook เป็นภาษาอ่านง่าย โดยพับ Pipeline ทุกขั้นและข้อมูลอ้างอิงไว้ให้เปิดดูเมื่อจำเป็น
+- ป๊อปอัปบนมือถือเลื่อนเนื้อหาได้ พร้อมปุ่มปิดด้านบน, “รับทราบ” และ “ดูผลล่าสุด” ที่กดได้เสมอ
 - AI Diagnostic จะไม่ถูกเรียกซ้ำเพื่อคิดค่าใช้จ่ายเมื่อรอบหยุดด้วย `CONFIG_INVALID`
 
 เมื่อ Deploy Google Apps Script รุ่นใหม่ด้วย deployment URL เดิม หน้า GitHub และ Application ที่ติดตั้งไว้จะโหลดรุ่นใหม่โดยอัตโนมัติ โดยไม่ต้องคัดลอก source หรือ Dashboard มายัง repository
