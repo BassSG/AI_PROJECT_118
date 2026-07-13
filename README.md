@@ -9,13 +9,14 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_118/
 - Google Apps Script deployment: https://script.google.com/macros/s/AKfycbweCV370sfJFtoCOR6g19j3cizvUzKZt9JMAbMqVtk5qF0jeG68VDypo6N0FcBNRRi9Iw/exec
 
-รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.8.6 / Apps Script deployment version 13**
+รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.8.7 / Apps Script deployment version 16**
 
 - หน้าเว็บแสดงทุกเหตุการณ์ของ Full Pipeline ทั้ง `PASS`, `FAIL`, `STOP`, `BYPASS` และเหตุผล
 - ผล `NO_TRADE` แสดงรายละเอียดครบ แต่ไม่ส่ง `PLACE_PENDING`
 - ส่ง Order Webhook เฉพาะแผนที่ผ่านทุก Gate และแสดงสถานะ `SENT_ACCEPTED`, `SENT_REJECTED` หรือ `NOT_SENT`
 - การวิเคราะห์จากหน้าเว็บใช้ผู้ส่ง `EBassWave`; การรันจาก GAS ใช้ผู้ส่ง `1-more`
-- เมื่อยังไม่ได้ตั้ง `ENDPOINT_URL` ระบบจะวิเคราะห์ต่อในโหมด Analysis-only, แสดงเหตุผลครบ และไม่สร้างคำสั่งซื้อ
+- เมื่อยังไม่ได้ตั้ง `ENDPOINT_URL` หรือ `ENDPOINT_SECRET` ระบบจะวิเคราะห์ Full Pipeline ต่อในโหมด Analysis-only, แสดงเหตุผลครบ และไม่สร้างคำสั่งซื้อ
+- หน้า Dashboard แยกสถานะ URL และ Secret ชัดเจน ไม่แสดงว่า Endpoint พร้อมเมื่อข้อมูลยังไม่ครบ
 - ป๊อปอัปผลลัพธ์บนมือถือเลื่อนเนื้อหาได้ พร้อมปุ่มปิดด้านบน, “รับทราบ” และ “ดูผลล่าสุด” ที่กดได้เสมอ
 - AI Diagnostic จะไม่ถูกเรียกซ้ำเพื่อคิดค่าใช้จ่ายเมื่อรอบหยุดด้วย `CONFIG_INVALID`
 
