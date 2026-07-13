@@ -1,4 +1,4 @@
-const CACHE='hermes-snd-shell-v11';
+const CACHE='hermes-snd-shell-v12';
 const SHELL=['./','./index.html','./manifest.webmanifest','./assets/hermes-snd-icon.svg','./assets/hermes-snd-icon-180.png','./assets/hermes-snd-icon-192.png','./assets/hermes-snd-icon-512.png','./assets/hermes-snd-maskable-512.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)));self.skipWaiting()});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))));self.clients.claim()});

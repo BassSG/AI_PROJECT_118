@@ -9,7 +9,13 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_118/
 - Google Apps Script deployment: https://script.google.com/macros/s/AKfycbweCV370sfJFtoCOR6g19j3cizvUzKZt9JMAbMqVtk5qF0jeG68VDypo6N0FcBNRRi9Iw/exec
 
-รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.8.9 / Apps Script deployment version 19**
+รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.0 Balanced Auto / Apps Script deployment version 21**
+
+- ใช้ `openai/gpt-5.6-luna-pro` เป็นค่าเริ่มต้น และเลือกต่อรอบได้ 3 โมเดล: Luna Pro, Terra Pro และ Sol Pro
+- Server ตรวจ Allowlist ทุกครั้ง จึงไม่รับชื่อโมเดลอื่นจากการแก้ค่าบน Browser
+- Balanced Auto ใช้เกณฑ์เริ่มต้น Zone ≥68, Structural RR ≥2.00, AI confidence ≥68% และ Retest ≤1
+- การทดสอบโซนครั้งแรก (`TESTED`, touches=1) และ Momentum M15/M5 ที่เป็น Pullback จะแสดงเป็นคำเตือน ไม่ถูกใช้เป็นเหตุปฏิเสธเพียงอย่างเดียว
+- กฎความปลอดภัยหลักยังอยู่ครบ: H4/H1 ต้องตรงทิศ, TP ต้องมีโครงสร้าง, ราคา/SL/TP ต้องถูกด้าน, โซน `USED_UP` และ Retest เกิน 1 ครั้งยังถูกบล็อก
 
 - หน้าเว็บแสดงทุกเหตุการณ์ของ Full Pipeline ทั้ง `PASS`, `FAIL`, `STOP`, `BYPASS` และเหตุผล
 - ผล `NO_TRADE` แสดงรายละเอียดครบ แต่ไม่ส่ง `PLACE_PENDING`
@@ -21,6 +27,7 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - ป๊อปอัปผลลัพธ์สรุปเหตุผล แผนที่ตรวจ และสถานะ Webhook เป็นภาษาอ่านง่าย โดยพับ Pipeline ทุกขั้นและข้อมูลอ้างอิงไว้ให้เปิดดูเมื่อจำเป็น
 - ป๊อปอัปบนมือถือเลื่อนเนื้อหาได้ พร้อมปุ่มปิดด้านบน, “รับทราบ” และ “ดูผลล่าสุด” ที่กดได้เสมอ
 - AI Diagnostic จะไม่ถูกเรียกซ้ำเพื่อคิดค่าใช้จ่ายเมื่อรอบหยุดด้วย `CONFIG_INVALID`
+- ค่าใช้จ่าย AI คำนวณตามโมเดลที่เลือกจริงในแต่ละรอบ และผลสรุปแสดงโมเดลที่ใช้เพื่อ Audit ย้อนหลัง
 
 เมื่อ Deploy Google Apps Script รุ่นใหม่ด้วย deployment URL เดิม หน้า GitHub และ Application ที่ติดตั้งไว้จะโหลดรุ่นใหม่โดยอัตโนมัติ โดยไม่ต้องคัดลอก source หรือ Dashboard มายัง repository
 
