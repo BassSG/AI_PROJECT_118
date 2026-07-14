@@ -9,7 +9,7 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_118/
 - Google Apps Script deployment: https://script.google.com/macros/s/AKfycbweCV370sfJFtoCOR6g19j3cizvUzKZt9JMAbMqVtk5qF0jeG68VDypo6N0FcBNRRi9Iw/exec
 
-รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.2 Dual Automation Control + Balanced Auto / Apps Script deployment version 25**
+รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.2 Dual Automation Control + Balanced Auto / Apps Script deployment version 26**
 
 ### Dual Automation Control
 
