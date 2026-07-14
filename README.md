@@ -9,7 +9,15 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_118/
 - Google Apps Script deployment: https://script.google.com/macros/s/AKfycbweCV370sfJFtoCOR6g19j3cizvUzKZt9JMAbMqVtk5qF0jeG68VDypo6N0FcBNRRi9Iw/exec
 
-รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.1 Analysis Plan + Balanced Auto / Apps Script deployment version 23**
+รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.2 Dual Automation Control + Balanced Auto / Apps Script deployment version 24**
+
+### Dual Automation Control
+
+- `Web Auto` วิเคราะห์ทุก 15 นาทีในนาม `EBassWave` เฉพาะขณะที่หน้าเว็บเปิดอยู่ และใช้ M15 Candle Guard ป้องกันการเรียก AI ซ้ำบนแท่งเดิม
+- `GAS Auto 24/7` วิเคราะห์ทุก 15 นาทีในนาม `1-more` แม้ปิดหน้าเว็บ โดยเปิดหรือปิด Trigger ได้จาก Dashboard
+- ระบบไม่อนุญาตให้ Web Auto และ GAS Auto ทำงานพร้อมกัน เพื่อลดรอบวิเคราะห์ซ้ำและควบคุมค่า AI
+- การควบคุม GAS Auto ใช้รหัส 6 หลักเพื่อจับคู่อุปกรณ์และ Session ที่ลงลายเซ็นอายุ 30 วัน โดยไม่ต้องยืนยันบัญชี Google
+- การเปิด Automation ไม่เปลี่ยน Execution Gate: Webhook ยังคงส่งเฉพาะ `AUTO_PLACE_PENDING` ที่ผ่านทุกกฎ
 
 - ใช้ `openai/gpt-5.6-luna-pro` เป็นค่าเริ่มต้น และเลือกต่อรอบได้ 3 โมเดล: Luna Pro, Terra Pro และ Sol Pro
 - Server ตรวจ Allowlist ทุกครั้ง จึงไม่รับชื่อโมเดลอื่นจากการแก้ค่าบน Browser
