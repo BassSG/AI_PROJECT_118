@@ -9,7 +9,11 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_118/
 - Google Apps Script deployment: https://script.google.com/macros/s/AKfycbweCV370sfJFtoCOR6g19j3cizvUzKZt9JMAbMqVtk5qF0jeG68VDypo6N0FcBNRRi9Iw/exec
 
-รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.2 Dual Automation Control + Balanced Auto / Apps Script deployment version 26**
+รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.3 LINE OA Alerts + Dual Automation Control / Apps Script deployment version 29**
+
+- LINE OA ส่ง Flex Message เฉพาะสัญญาณ `AUTO_PLACE_PENDING` ที่ Order Endpoint ตอบรับสำเร็จแล้ว โดยแสดงคำสั่ง, Entry, SL, TP, RR, Confidence, Zone, Model และผู้ส่ง
+- Channel Access Token และ Recipient ID เก็บใน Google Apps Script Properties เท่านั้น ไม่อยู่ในหน้าเว็บหรือ GitHub
+- หาก LINE ส่งไม่สำเร็จ ระบบจะบันทึก Error แยกต่างหากและไม่เปลี่ยนผล Order ที่ Endpoint รับไปแล้ว
 
 ### Dual Automation Control
 
