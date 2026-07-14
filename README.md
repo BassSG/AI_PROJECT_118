@@ -9,7 +9,7 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_118/
 - Google Apps Script deployment: https://script.google.com/macros/s/AKfycbweCV370sfJFtoCOR6g19j3cizvUzKZt9JMAbMqVtk5qF0jeG68VDypo6N0FcBNRRi9Iw/exec
 
-รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.5 Compact Premium LINE OA Cards + Dual Automation Control / Apps Script deployment version 31**
+รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.7 Outcome Monitor + Complete Audit Logs / Apps Script deployment version 33**
 
 - LINE OA ส่ง Flex Message ดีไซน์ Luxury Trading Terminal พร้อมโลโก้ Hermes, Entry Hero, การ์ด TP/SL, RR, QC%, SCORE และ Market Structure H4/H1/M15/M5 ในรูปแบบกะทัดรัดสำหรับมือถือ
 - Channel Access Token และ Recipient ID เก็บใน Google Apps Script Properties เท่านั้น ไม่อยู่ในหน้าเว็บหรือ GitHub
@@ -22,6 +22,14 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - ระบบไม่อนุญาตให้ Web Auto และ GAS Auto ทำงานพร้อมกัน เพื่อลดรอบวิเคราะห์ซ้ำและควบคุมค่า AI
 - การควบคุม GAS Auto ใช้รหัส 6 หลักเพื่อจับคู่อุปกรณ์และ Session ที่ลงลายเซ็นอายุ 30 วัน โดยไม่ต้องยืนยันบัญชี Google
 - การเปิด Automation ไม่เปลี่ยน Execution Gate: Webhook ยังคงส่งเฉพาะ `AUTO_PLACE_PENDING` ที่ผ่านทุกกฎ
+
+### Outcome Monitor และสถิติออเดอร์
+
+- GAS ตรวจออเดอร์ที่ยังทำงานทุก 5 นาที โดยตรวจสถานะจาก MT5 Endpoint ก่อน แล้วใช้แท่ง M5 จาก FMP เป็นชั้น Audit สำหรับ Entry, TP, SL และ Expired
+- รอบตรวจออเดอร์ไม่เรียก AI (`aiCalls=0`) และเมื่อไม่มีออเดอร์ที่ต้องติดตามจะไม่เรียกทั้ง FMP และ Endpoint
+- สถานะจาก MT5 เป็นข้อมูลหลัก ส่วนผลจาก FMP ติดป้าย `FMP_AUDIT`; ถ้า Entry/TP/SL ชนกันภายในแท่งเดียว ระบบบันทึก `AMBIGUOUS` และรอ MT5 ยืนยันโดยไม่เดาลำดับราคา
+- `OrderChecks` เก็บผลตรวจราคาแต่ละรอบ, `Outcome` เก็บเหตุการณ์วงจรออเดอร์, `Orders` เก็บสถานะล่าสุด และ `Logs`/`PipelineTrace`/`RunReport` เก็บการทำงานและการวิเคราะห์ย้อนหลัง
+- Dashboard แสดง Entry Filled, TP, SL, Win Rate, Realized RR, Ambiguous, สุขภาพ Trigger และเหตุการณ์ Outcome ล่าสุด
 
 - ใช้ `openai/gpt-5.6-luna-pro` เป็นค่าเริ่มต้น และเลือกต่อรอบได้ 3 โมเดล: Luna Pro, Terra Pro และ Sol Pro
 - Server ตรวจ Allowlist ทุกครั้ง จึงไม่รับชื่อโมเดลอื่นจากการแก้ค่าบน Browser
