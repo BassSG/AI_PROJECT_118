@@ -9,7 +9,7 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_118/
 - Google Apps Script deployment: https://script.google.com/macros/s/AKfycbweCV370sfJFtoCOR6g19j3cizvUzKZt9JMAbMqVtk5qF0jeG68VDypo6N0FcBNRRi9Iw/exec
 
-รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.7 Outcome Monitor + Complete Audit Logs / Apps Script deployment version 33**
+รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.8 Evidence Mode + Outcome Monitor / Apps Script deployment version 35**
 
 - LINE OA ส่ง Flex Message ดีไซน์ Luxury Trading Terminal พร้อมโลโก้ Hermes, Entry Hero, การ์ด TP/SL, RR, QC%, SCORE และ Market Structure H4/H1/M15/M5 ในรูปแบบกะทัดรัดสำหรับมือถือ
 - Channel Access Token และ Recipient ID เก็บใน Google Apps Script Properties เท่านั้น ไม่อยู่ในหน้าเว็บหรือ GitHub
@@ -33,9 +33,13 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 
 - ใช้ `openai/gpt-5.6-luna-pro` เป็นค่าเริ่มต้น และเลือกต่อรอบได้ 3 โมเดล: Luna Pro, Terra Pro และ Sol Pro
 - Server ตรวจ Allowlist ทุกครั้ง จึงไม่รับชื่อโมเดลอื่นจากการแก้ค่าบน Browser
-- Balanced Auto ใช้เกณฑ์เริ่มต้น Zone ≥68, Structural RR ≥2.00, AI confidence ≥68% และ Retest ≤1
+- Evidence Mode ใช้เกณฑ์เริ่มต้น Zone ≥68, Structural RR ≥2.00, AI confidence ≥68% และ Retest ≤1
 - การทดสอบโซนครั้งแรก (`TESTED`, touches=1) และ Momentum M15/M5 ที่เป็น Pullback จะแสดงเป็นคำเตือน ไม่ถูกใช้เป็นเหตุปฏิเสธเพียงอย่างเดียว
-- กฎความปลอดภัยหลักยังอยู่ครบ: H4/H1 ต้องตรงทิศ, TP ต้องมีโครงสร้าง, ราคา/SL/TP ต้องถูกด้าน, โซน `USED_UP` และ Retest เกิน 1 ครั้งยังถูกบล็อก
+- H4 เป็นกรอบทิศทางหลัก; เมื่อ H1 อยู่ช่วง `SIDEWAYS` จะผ่านได้เฉพาะเมื่อ M15 ยืนยันไปทางเดียวกับ H4 ส่วน H4 สวนทางหรือ Sideway ยังถูกบล็อก
+- TP1 สมดุลไว้ที่ 3R เมื่อมีพื้นที่ก่อนโซนตรงข้าม และเก็บขอบโซนตรงข้ามไว้เป็น TP2 เพื่อไม่ให้ RR สูงเกินจริง
+- เพดานคำสั่งที่ผ่านคือ 5 แผนต่อวัน ไม่ใช่โควตาบังคับ ระบบจะไม่สร้างออเดอร์ปลอมเมื่อหลักฐานไม่พอ
+- Dashboard แสดง Analysis Funnel 24 ชั่วโมง: จำนวนรอบ, แผนที่สร้างได้, AI Review, แผนที่อนุมัติ, Webhook ที่ส่ง และ Gate ที่ตัดบ่อยที่สุด
+- กฎความปลอดภัยหลักยังอยู่ครบ: TP ต้องมีโครงสร้าง, ราคา/SL/TP ต้องถูกด้าน, โซน `USED_UP`, Retest เกิน 1 ครั้ง, ความเสี่ยง 0.5%, Pending/Position อย่างละไม่เกิน 1 และ Daily Loss Guard 2%
 
 - หน้าเว็บแสดงทุกเหตุการณ์ของ Full Pipeline ทั้ง `PASS`, `FAIL`, `STOP`, `BYPASS` และเหตุผล
 - เมื่อสร้าง Candidate ได้ ระบบจะแสดง Best Analysis Plan พร้อม `BUY_LIMIT`/`SELL_LIMIT`, Entry, SL, TP และ RR แม้ผลสุดท้ายเป็น `NO_TRADE`
