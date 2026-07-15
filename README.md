@@ -7,9 +7,9 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 ## เปิดใช้งาน
 
 - GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_118/
-- Google Apps Script deployment: https://script.google.com/macros/s/AKfycbweCV370sfJFtoCOR6g19j3cizvUzKZt9JMAbMqVtk5qF0jeG68VDypo6N0FcBNRRi9Iw/exec
+- Google Apps Script deployment: https://script.google.com/macros/s/AKfycbwQPh4d0jeNMc2MOEFYrTy6YhqfuJJvnyVjOtQ6oPXU2QrqydDFW5eEEvpUU8wt-9btwA/exec
 
-รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.8 Evidence Mode + Outcome Monitor / Apps Script deployment version 35**
+รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.9 Evidence Mode + Outcome Monitor / Apps Script deployment version 36**
 
 - LINE OA ส่ง Flex Message ดีไซน์ Luxury Trading Terminal พร้อมโลโก้ Hermes, Entry Hero, การ์ด TP/SL, RR, QC%, SCORE และ Market Structure H4/H1/M15/M5 ในรูปแบบกะทัดรัดสำหรับมือถือ
 - Channel Access Token และ Recipient ID เก็บใน Google Apps Script Properties เท่านั้น ไม่อยู่ในหน้าเว็บหรือ GitHub
