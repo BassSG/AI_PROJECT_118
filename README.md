@@ -7,9 +7,9 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 ## เปิดใช้งาน
 
 - GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_118/
-- Google Apps Script deployment: https://script.google.com/macros/s/AKfycbx055A5Sg8rZxBleDTDS8lATsRa3UD-gEZc03QjqYC6_QGPEbQJzVTDj_x-V9gfFi4iSQ/exec
+- Google Apps Script deployment: https://script.google.com/macros/s/AKfycbw2tAbsmFaMgBMBtQ5csnJYZr9U1WschW1laIHAt2aAQZuI5njHXF2bTqiPt5JnuBugFw/exec
 
-รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v2.1.0 FXTA Evidence Accuracy + Outcome Monitor / Apps Script deployment version 40**
+รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v2.1.1 Forward-Test RR 1.10 + Outcome Monitor / Apps Script deployment version 41**
 
 - แยก `AI QC`, `Zone Quality`, `Setup QC` และ `Proven Accuracy` ออกจากกันชัดเจน; ไม่มีคะแนนใดถูกอ้างเป็น Win Rate
 - Strength ตรวจ Clean Departure จาก displacement, directional purity, body dominance, short wicks และความต่อเนื่องของแท่ง ไม่ดู Impulse/ATR เพียงค่าเดียว
@@ -46,7 +46,7 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 
 - ใช้ `openai/gpt-5.6-luna-pro` เป็นค่าเริ่มต้น และเลือกต่อรอบได้ 3 โมเดล: Luna Pro, Terra Pro และ Sol Pro
 - Server ตรวจ Allowlist ทุกครั้ง จึงไม่รับชื่อโมเดลอื่นจากการแก้ค่าบน Browser
-- Evidence Mode ใช้เกณฑ์เริ่มต้น Zone ≥68, Structural RR ≥2.00, AI confidence ≥68% และ Retest ≤1
+- Forward-Test Mode ใช้เกณฑ์เริ่มต้น Zone ≥68, Structural RR ≥1.10, AI confidence ≥68% และ Retest ≤1
 - การทดสอบโซนครั้งแรก (`TESTED`, touches=1) และ Momentum M15/M5 ที่เป็น Pullback จะแสดงเป็นคำเตือน ไม่ถูกใช้เป็นเหตุปฏิเสธเพียงอย่างเดียว
 - H4 เป็นกรอบทิศทางหลัก; เมื่อ H1 อยู่ช่วง `SIDEWAYS` จะผ่านได้เฉพาะเมื่อ M15 ยืนยันไปทางเดียวกับ H4 ส่วน H4 สวนทางหรือ Sideway ยังถูกบล็อก
 - TP1 สมดุลไว้ที่ 3R เมื่อมีพื้นที่ก่อนโซนตรงข้าม และเก็บขอบโซนตรงข้ามไว้เป็น TP2 เพื่อไม่ให้ RR สูงเกินจริง
