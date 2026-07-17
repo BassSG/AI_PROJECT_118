@@ -7,9 +7,14 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 ## เปิดใช้งาน
 
 - GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_118/
-- Google Apps Script deployment: https://script.google.com/macros/s/AKfycbwQPh4d0jeNMc2MOEFYrTy6YhqfuJJvnyVjOtQ6oPXU2QrqydDFW5eEEvpUU8wt-9btwA/exec
+- Google Apps Script deployment: https://script.google.com/macros/s/AKfycbx055A5Sg8rZxBleDTDS8lATsRa3UD-gEZc03QjqYC6_QGPEbQJzVTDj_x-V9gfFi4iSQ/exec
 
-รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v1.9.9 Evidence Mode + Outcome Monitor / Apps Script deployment version 36**
+รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v2.0.0 Cost-Aware QC + Outcome Monitor / Apps Script deployment version 37**
+
+- สแกน FMP และตรวจ Hard Gate ทั้งหมดก่อนเรียก AI; แผนที่ไม่ผ่านยังแสดง Entry/SL/TP แต่ค่า AI เป็นศูนย์
+- เรียก AI เฉพาะ Candidate ที่พร้อมส่งจริง สูงสุด 1 Candidate ต่อรอบ, 320 output tokens, 8 รีวิวแบบเสียเงินต่อวัน และงบ $0.15 ต่อวัน
+- Candidate เดิมและสภาพตลาดเดิมใช้ AI Review ซ้ำได้นาน 60 นาทีโดยไม่เสียเงินเพิ่ม
+- Auto execution จำกัด Entry ไม่เกิน 1.5 ATR และบล็อก H1 momentum ที่สวนแรง
 
 - LINE OA ส่ง Flex Message ดีไซน์ Luxury Trading Terminal พร้อมโลโก้ Hermes, Entry Hero, การ์ด TP/SL, RR, QC%, SCORE และ Market Structure H4/H1/M15/M5 ในรูปแบบกะทัดรัดสำหรับมือถือ
 - Channel Access Token และ Recipient ID เก็บใน Google Apps Script Properties เท่านั้น ไม่อยู่ในหน้าเว็บหรือ GitHub
@@ -44,7 +49,7 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - หน้าเว็บแสดงทุกเหตุการณ์ของ Full Pipeline ทั้ง `PASS`, `FAIL`, `STOP`, `BYPASS` และเหตุผล
 - เมื่อสร้าง Candidate ได้ ระบบจะแสดง Best Analysis Plan พร้อม `BUY_LIMIT`/`SELL_LIMIT`, Entry, SL, TP และ RR แม้ผลสุดท้ายเป็น `NO_TRADE`
 - แผนที่ไม่ผ่าน Execution Gate จะติดป้าย `REFERENCE_ONLY` และ `NOT_SENT` ชัดเจน โดยไม่ส่ง `PLACE_PENDING`
-- OpenRouter ถูกเรียกเพื่อ Review เมื่อมี Candidate อย่างน้อยหนึ่งแผน แม้แผนนั้นยังไม่ผ่าน Auto Gate เพื่อให้เห็นคำอธิบายและ Token/Cost จริง
+- OpenRouter ถูกเรียกเฉพาะเมื่อ Candidate ผ่าน Hard Gate, Dedupe และ Local Order Policy แล้วเท่านั้น
 - ถ้าไม่มี Candidate ที่สร้าง Entry/SL/TP ได้ ระบบจะไม่เรียก AI, แสดง `NOT_CALLED_NO_CANDIDATE` และค่า AI เป็นศูนย์
 - ส่ง Order Webhook เฉพาะแผนที่ผ่านทุก Gate และแสดงสถานะ `SENT_ACCEPTED`, `SENT_REJECTED` หรือ `NOT_SENT`
 - การวิเคราะห์จากหน้าเว็บใช้ผู้ส่ง `EBassWave`; การรันจาก GAS ใช้ผู้ส่ง `1-more`

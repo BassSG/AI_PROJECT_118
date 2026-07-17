@@ -28,17 +28,17 @@
   </main>
 </div>
 <script>
-  const APP_VERSION='1.9.9';
-  const APP_URL='https://script.google.com/macros/s/AKfycbwQPh4d0jeNMc2MOEFYrTy6YhqfuJJvnyVjOtQ6oPXU2QrqydDFW5eEEvpUU8wt-9btwA/exec';
+  const APP_VERSION='2.0.0';
+  const APP_URL='https://script.google.com/macros/s/AKfycbx055A5Sg8rZxBleDTDS8lATsRa3UD-gEZc03QjqYC6_QGPEbQJzVTDj_x-V9gfFi4iSQ/exec';
   const frame=document.getElementById('appFrame');
   const loading=document.getElementById('loading');
   const errorBox=document.getElementById('errorBox');
   const statusText=document.getElementById('statusText');
   document.getElementById('sourceBtn').href=APP_URL;
-  function loadApp(force){loading.classList.remove('hide');errorBox.classList.remove('show');statusText.textContent='กำลังเชื่อมต่อ';const url=new URL(APP_URL);url.searchParams.set('v',APP_VERSION);if(force)url.searchParams.set('refresh',Date.now());frame.src=url.toString()}
-  frame.addEventListener('load',()=>{setTimeout(()=>{loading.classList.add('hide');statusText.textContent='เชื่อมต่อแล้ว'},280)});
+  let loadTimer;
+  function loadApp(force){clearTimeout(loadTimer);loading.classList.remove('hide');errorBox.classList.remove('show');statusText.textContent='กำลังเชื่อมต่อ';const url=new URL(APP_URL);url.searchParams.set('v',APP_VERSION);if(force)url.searchParams.set('refresh',Date.now());frame.src=url.toString();loadTimer=setTimeout(()=>{if(!loading.classList.contains('hide'))errorBox.classList.add('show')},12000)}
+  frame.addEventListener('load',()=>{clearTimeout(loadTimer);errorBox.classList.remove('show');setTimeout(()=>{loading.classList.add('hide');statusText.textContent='เชื่อมต่อแล้ว'},280)});
   document.getElementById('reloadBtn').onclick=()=>loadApp(true);
-  setTimeout(()=>{if(!loading.classList.contains('hide'))errorBox.classList.add('show')},12000);
   let deferredPrompt;const install=document.getElementById('installBtn');
   window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();deferredPrompt=event;install.style.display='inline-block'});
   install.onclick=async()=>{if(!deferredPrompt)return;deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;install.style.display='none'};
