@@ -9,7 +9,7 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_118/
 - Google Apps Script deployment: https://script.google.com/macros/s/AKfycbx055A5Sg8rZxBleDTDS8lATsRa3UD-gEZc03QjqYC6_QGPEbQJzVTDj_x-V9gfFi4iSQ/exec
 
-รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v2.0.0 Cost-Aware QC + Outcome Monitor / Apps Script deployment version 37**
+รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v2.0.0 Cost-Aware QC + Outcome Monitor / Apps Script deployment version 38**
 
 - สแกน FMP และตรวจ Hard Gate ทั้งหมดก่อนเรียก AI; แผนที่ไม่ผ่านยังแสดง Entry/SL/TP แต่ค่า AI เป็นศูนย์
 - เรียก AI เฉพาะ Candidate ที่พร้อมส่งจริง สูงสุด 1 Candidate ต่อรอบ, 320 output tokens, 8 รีวิวแบบเสียเงินต่อวัน และงบ $0.15 ต่อวัน
