@@ -9,7 +9,15 @@ GitHub Pages แสดง Google Apps Script Web App อยู่ภายใน
 - GitHub Pages / PWA: https://basssg.github.io/AI_PROJECT_118/
 - Google Apps Script deployment: https://script.google.com/macros/s/AKfycbx055A5Sg8rZxBleDTDS8lATsRa3UD-gEZc03QjqYC6_QGPEbQJzVTDj_x-V9gfFi4iSQ/exec
 
-รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v2.0.0 Cost-Aware QC + Outcome Monitor / Apps Script deployment version 38**
+รุ่นที่ใช้งานปัจจุบัน: **Hermes SnD v2.1.0 FXTA Evidence Accuracy + Outcome Monitor / Apps Script deployment version 40**
+
+- แยก `AI QC`, `Zone Quality`, `Setup QC` และ `Proven Accuracy` ออกจากกันชัดเจน; ไม่มีคะแนนใดถูกอ้างเป็น Win Rate
+- Strength ตรวจ Clean Departure จาก displacement, directional purity, body dominance, short wicks และความต่อเนื่องของแท่ง ไม่ดู Impulse/ATR เพียงค่าเดียว
+- Base Quality ตรวจทั้งจำนวนแท่งฐานและความกว้างรวมเทียบ M15 ATR; Freshness เริ่มนับ Retest หลัง Departure จบทันที
+- Momentum เพิ่มหลักฐาน directional purity, body dominance, price break และ QM-like structure shift
+- TP วางก่อนโซนตรงข้ามที่มีคุณภาพด้วย ATR safety buffer เพื่อลดการตั้งเป้าชนโซนพอดี
+- หน้าเว็บแสดง Win Rate พร้อม sample size, Expectancy, Fill Rate, Avg Win/Loss และสถานะเก็บหลักฐานขั้นต่ำ 20 ออเดอร์
+- ขณะนี้ Outcome ที่ปิดจริงมีเพียง 1 ออเดอร์ จึงแสดง `COLLECTING 1/20` และยังไม่กล่าวอ้างความแม่นยำของโมเดล
 
 - สแกน FMP และตรวจ Hard Gate ทั้งหมดก่อนเรียก AI; แผนที่ไม่ผ่านยังแสดง Entry/SL/TP แต่ค่า AI เป็นศูนย์
 - เรียก AI เฉพาะ Candidate ที่พร้อมส่งจริง สูงสุด 1 Candidate ต่อรอบ, 320 output tokens, 8 รีวิวแบบเสียเงินต่อวัน และงบ $0.15 ต่อวัน
